@@ -19,5 +19,7 @@ The mouse can be moved anywhere on the map and will always return the informatio
 
 
 
-https://user-images.githubusercontent.com/28272136/221761747-29390b43-5a92-44fb-b56d-547e6ebd5440.mp4
+
+
+https://user-images.githubusercontent.com/28272136/221765653-f1e0a24e-9f23-4fec-a283-51742aa34d97.mp4
 
