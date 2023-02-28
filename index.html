@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>    
     
-    <script>
+<script>
 
 var flightPath;
 var map;
@@ -39,9 +39,9 @@ var guideLayer = [
 			
 ];
 		
-var r1 = ['-22.967660000000002, -43.040620000000004|-22.967200000000002, -43.039950000000005|-22.966120000000004, -43.036640000000006|-22.9648, -43.03416'];
+	var r1 = ['-22.967660000000002, -43.040620000000004|-22.967200000000002, -43.039950000000005|-22.966120000000004, -43.036640000000006|-22.9648, -43.03416'];
 
-var coordinates1 = r1[0].split("|");
+	var coordinates1 = r1[0].split("|");
 	var flightPlanCoordinates1 = new Array();
 	for(i=0;i<coordinates1.length;i++)
 	{  
@@ -60,7 +60,7 @@ var coordinates1 = r1[0].split("|");
 	}   
 
 		
-      function initialize() {
+    function initialize() {
         var myLatLng = new google.maps.LatLng(-22.966365, -43.037381);
         var mapOptions = {
           zoom: 17,
@@ -103,51 +103,50 @@ var stop1 = turf.point(flightPlanCoordinates1[3]);
 
 var sliced = turf.lineSlice(start1, stop1, line1);
 
-			   	gravaCoord = [];
-			   	distTotal = 0;
+gravaCoord = [];
+distTotal = 0;
 				
-				for (var i=0; i<sliced.geometry.coordinates.length; i++) {
+for (var i=0; i<sliced.geometry.coordinates.length; i++) {
 								
-				gravaCoord.push(sliced.geometry.coordinates[i].toString()); 
+	gravaCoord.push(sliced.geometry.coordinates[i].toString()); 
 			
-				if(gravaCoord.length > 1){
+	if(gravaCoord.length > 1){
 				
-				latLonInicial = gravaCoord[i-1];				
-				latLonFinal = gravaCoord[i];
+		latLonInicial = gravaCoord[i-1];				
+		latLonFinal = gravaCoord[i];
 				
-				var latLonInicialComp = latLonInicial.split(',', 2);
-				var lat1 = parseFloat(latLonInicialComp[0]);
-				var lon1 = parseFloat(latLonInicialComp[1]);
+		var latLonInicialComp = latLonInicial.split(',', 2);
+		var lat1 = parseFloat(latLonInicialComp[0]);
+		var lon1 = parseFloat(latLonInicialComp[1]);
 								
-				var latLonFinalComp = latLonFinal.split(',', 2);
-				var lat2 = parseFloat(latLonFinalComp[0]);
-				var lon2 = parseFloat(latLonFinalComp[1]);					
+		var latLonFinalComp = latLonFinal.split(',', 2);
+		var lat2 = parseFloat(latLonFinalComp[0]);
+		var lon2 = parseFloat(latLonFinalComp[1]);					
 											
-				var R = 6371; // Radius of the earth in km
-				var dLat = (lat2 - lat1) * Math.PI / 180;			 
-				var dLon = (lon2 - lon1) * Math.PI / 180;			  
-				p1 = (lat1 * Math.PI / 180);			  
-				p2 = (lat2 * Math.PI / 180);			  
-				var a = 
-					0.5 - Math.cos(dLat)/2 + 
-					Math.cos(p1) * Math.cos(p2) * 
-					(1 - Math.cos(dLon))/2;
+		var R = 6371; // Radius of the earth in km
+		var dLat = (lat2 - lat1) * Math.PI / 180;			 
+		var dLon = (lon2 - lon1) * Math.PI / 180;			  
+		p1 = (lat1 * Math.PI / 180);			  
+		p2 = (lat2 * Math.PI / 180);			  
+		var a = 
+			0.5 - Math.cos(dLat)/2 + 
+			Math.cos(p1) * Math.cos(p2) * 
+			(1 - Math.cos(dLon))/2;
 					
 								
-				var distanciaAproximada = R * 2 * Math.asin(Math.sqrt(a));
+		var distanciaAproximada = R * 2 * Math.asin(Math.sqrt(a));
 									
-				var distanciaAproximadaFormat = distanciaAproximada*1000;			  			  
+		var distanciaAproximadaFormat = distanciaAproximada*1000;			  			  
 				
-				distTotal += distanciaAproximadaFormat;
+		distTotal += distanciaAproximadaFormat;
 				
-				}			  
+	}			  
 			  
-			   }
+}
 			   
-			   distTotalFormat = Math.round(distTotal);
+	distTotalFormat = Math.round(distTotal);
 			  
-			  $('#distTotal').html('<b>Total line distance:</b> '+distTotalFormat+' meters');
-			  
+	$('#distTotal').html('<b>Total line distance:</b> '+distTotalFormat+' meters');			  
 
 calculaPercentualPercurso();
 
@@ -193,7 +192,6 @@ marker = new google.maps.Marker({
 		
 		markers.push(marker);
 
-
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -207,50 +205,50 @@ var start1 = turf.point(flightPlanCoordinates1[0]);
 var stop1 = turf.point([lat,long]);
 var sliced = turf.lineSlice(start1, stop1, line1);
 	
-				gravaCoord1 = [];
-			   	distTotal1 = 0;			   	
+gravaCoord1 = [];
+distTotal1 = 0;			   	
 				
-				for (var i=0; i<sliced.geometry.coordinates.length; i++) {
+for (var i=0; i<sliced.geometry.coordinates.length; i++) {
 								
-				gravaCoord1.push(sliced.geometry.coordinates[i].toString()); 
+	gravaCoord1.push(sliced.geometry.coordinates[i].toString()); 
 			
-				if(gravaCoord1.length > 1){
+	if(gravaCoord1.length > 1){
 				
-				latLonInicial1 = gravaCoord1[i-1];				
-				latLonFinal1 = gravaCoord1[i];				
+		latLonInicial1 = gravaCoord1[i-1];				
+		latLonFinal1 = gravaCoord1[i];				
 				
-				var latLonInicialComp = latLonInicial1.split(',', 2);
-				var lat1 = parseFloat(latLonInicialComp[0]);
-				var lon1 = parseFloat(latLonInicialComp[1]);
+		var latLonInicialComp = latLonInicial1.split(',', 2);
+		var lat1 = parseFloat(latLonInicialComp[0]);
+		var lon1 = parseFloat(latLonInicialComp[1]);
 								
-				var latLonFinalComp = latLonFinal1.split(',', 2);
-				var lat2 = parseFloat(latLonFinalComp[0]);
-				var lon2 = parseFloat(latLonFinalComp[1]);									
+		var latLonFinalComp = latLonFinal1.split(',', 2);
+		var lat2 = parseFloat(latLonFinalComp[0]);
+		var lon2 = parseFloat(latLonFinalComp[1]);									
 			
-			var R = 6371; // Radius of the earth in km
-			  var dLat = (lat2 - lat1) * Math.PI / 180;			 
-			  var dLon = (lon2 - lon1) * Math.PI / 180;			  
-			  p1 = (lat1 * Math.PI / 180);			  
-			  p2 = (lat2 * Math.PI / 180);			  
-			  var a = 
-				 0.5 - Math.cos(dLat)/2 + 
-				 Math.cos(p1) * Math.cos(p2) * 
-				 (1 - Math.cos(dLon))/2;
+		var R = 6371; // Radius of the earth in km
+		var dLat = (lat2 - lat1) * Math.PI / 180;			 
+		var dLon = (lon2 - lon1) * Math.PI / 180;			  
+		p1 = (lat1 * Math.PI / 180);			  
+		p2 = (lat2 * Math.PI / 180);			  
+		var a = 
+			0.5 - Math.cos(dLat)/2 + 
+			Math.cos(p1) * Math.cos(p2) * 
+			(1 - Math.cos(dLon))/2;
 				
 				 			
-			  var distanciaAproximada = R * 2 * Math.asin(Math.sqrt(a));
+		var distanciaAproximada = R * 2 * Math.asin(Math.sqrt(a));
 			  		  			  
-			  var distanciaAproximadaFormat = distanciaAproximada*1000;			  
+		var distanciaAproximadaFormat = distanciaAproximada*1000;			  
 			  
-			  distTotal1 += distanciaAproximadaFormat;
+		distTotal1 += distanciaAproximadaFormat;
 			  
-				}			  
+	}			  
 			  
-			   }
+}
 			   
-			   distTotalFormat1 = Math.round(distTotal1);
+	distTotalFormat1 = Math.round(distTotal1);
 			  
-			  $('#distTotalPercorrida').html('<b>Travelled distance:</b> '+distTotalFormat1+' meters</br><b>Distance to go:</b> '+(totalPercurso-distTotalFormat1)+' meters</br><b>Percentage traveled:</b> '+Math.round((distTotal1 *100)/totalPercurso)+' %');			  
+	$('#distTotalPercorrida').html('<b>Travelled distance:</b> '+distTotalFormat1+' meters</br><b>Distance to go:</b> '+(totalPercurso-distTotalFormat1)+' meters</br><b>Percentage traveled:</b> '+Math.round((distTotal1 *100)/totalPercurso)+' %');			  
 	
 }
 
@@ -277,50 +275,47 @@ var sliced = turf.lineSlice(start1, stop1, line1);
       function deleteMarkers() {
         clearMarkers();
         markers = [];
-      }
-
-	
+      }	
 }    
 
-    </script>
+</script>
 
-	<style>
+<style>
 
 html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 #painelesquerda{
-			position: relative;
-			padding: 1em;
-			float: left;
-			width: 24%;
-			height: auto;
-			margin-left: 5%;
-			margin-top: 12%;
-			background-color: #ffffff;
-			border-radius: 10px;
-			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
-			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
-			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
-			border: 5px solid red;
-			padding: 20px;
-			padding-bottom: 40px;
-		}
+	position: relative;
+	padding: 1em;
+	float: left;
+	width: 24%;
+	height: auto;
+	margin-left: 5%;
+	margin-top: 12%;
+	background-color: #ffffff;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+	border: 5px solid red;
+	padding: 20px;
+	padding-bottom: 40px;
+}
 
-		#map-canvas {
-        height: 100%;
-        float: left;
-        width: 100%;
-		position: absolute;
-		padding: 0;
-		margin: 0;
-      }
+#map-canvas {
+    height: 100%;
+    float: left;
+    width: 100%;
+	position: absolute;
+	padding: 0;
+	margin: 0;
+}
 
-
-	</style>
+</style>
     
   </head>
   <!--<body>-->
