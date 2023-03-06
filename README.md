@@ -1,5 +1,5 @@
 # Turf.js-javascript-geospatial-library
-Geospatial library javascript turf.js
+<h3>Geospatial library javascript turf.js</h3>
 
 The mouse can be moved anywhere on the map and will always return the information:
 
@@ -17,9 +17,8 @@ The mouse can be moved anywhere on the map and will always return the informatio
 
 - Percentage traveled by the marker over the red line
 
-
-
-
+<h2>Example of operation</h2>
+<br>
 
 https://user-images.githubusercontent.com/28272136/221765653-f1e0a24e-9f23-4fec-a283-51742aa34d97.mp4
 
